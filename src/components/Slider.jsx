@@ -1,11 +1,14 @@
- import styled from 'styled-components'
- import { ArrowLeftOutlined, ArrowRightOutlined  } from '@material-ui/icons'
+import styled from 'styled-components'
+import { ArrowLeftOutlined, ArrowRightOutlined  } from '@material-ui/icons'
+import { useState } from 'react'
+import { sliderItems } from '../data'
 
  const Container=styled.div({
     width:'100%',
     height:'100vh',
     display:'flex',
-    position:'relative'
+    position:'relative',
+    overflow:'hidden'
  })
 
  const Arrow = styled.div((props)=>({
@@ -23,19 +26,24 @@
     right:props.direction==="right" && "10px",
     margin:'auto',
     cursor:'pointer',
-    opacity:'0.5'
+    opacity:'0.5',
+    zIndex:'2'
  }))
 
- const Wrapper = styled.div({
-     height:'100%'
- })
+ const Wrapper = styled.div((props)=>({
+     height:'100%',
+     display:'flex',
+     transform: `translateX(${props.slideIndex * -100}vw)`,
+     transition: 'all 1.5s ease'
+ }))
 
- const Slide = styled.div({
+ const Slide = styled.div((props)=>({
     display:'flex',
     alignItems:'center',
     width:'100vw',
-    height:'100vh'    
-})
+    height:'100vh',
+    backgroundColor:props.bg
+}))
 
 
  const ImgContainer = styled.div({
@@ -52,24 +60,57 @@
     padding:'50px'
 })
 
+const Title = styled.h1({
+    fontSize:'70px'
+})
 
+const Desc = styled.p({
+    margin:'50px 0px',
+    fontSize:'20px',
+    fontWeight:'500',
+    letterSpacing:'3px'
+})
 
+const Button = styled.button({
+    padding:'10px',
+    fontSize:'20px',
+    backgroundColor:'transparent',
+    cursor:'pointer '
+})
  
  const Slider = () => {
+    const [slideIndex, setSlideIndex]=useState(0);  
+
+    const handleClick = (direction)=>{
+         if(direction==="left"){
+            setSlideIndex(slideIndex>0?slideIndex-1:2)
+         } else {
+            setSlideIndex(slideIndex<2?slideIndex+1:0)
+         }
+    }
+
    return (
      <Container>
-       <Arrow direction="left">
+       <Arrow direction="left" onClick={()=>handleClick("left")}>
             <ArrowLeftOutlined />
        </Arrow>
-       <Wrapper>
-        <Slide>
-        <ImgContainer>
-            <Image src="https://previews.123rf.com/images/piksel/piksel1104/piksel110400066/9356939-cute-girl.jpg" />
-        </ImgContainer>
-        <InfoContainer></InfoContainer>
+       <Wrapper slideIndex={slideIndex}>
+        {sliderItems.map(item=>(
+
+        <Slide bg={item.bg}>
+            <ImgContainer>
+                <Image src={item.img} />
+            </ImgContainer>
+            <InfoContainer>
+                <Title>{item.title}</Title>
+                <Desc>{item.desc}</Desc>
+                <Button>SHOW NOW</Button>
+            </InfoContainer>
         </Slide>
+    ))}
+        
        </Wrapper>
-       <Arrow direction="right">
+       <Arrow direction="right" onClick={()=>handleClick("right")}>
             <ArrowRightOutlined />
        </Arrow>
      </Container>
