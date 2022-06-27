@@ -38,5 +38,39 @@ export const categories = [
         img: 'https://cdn.shopify.com/s/files/1/0055/1242/products/EXP54LWZC-CNV_55d6ceb3-6996-43be-99be-196331c4ad0e_2048x.jpg?v=1574111422',
         title: 'LIGHT JACKETS'
     }
+]
 
+export const popularProducts=[
+    {
+        id:1,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScDpdniZJNWLr18sIqgVc_xR9NLDQTp8mYzA&usqp=CAU'
+    },
+    {
+        id:2,
+        img:'https://global-uploads.webflow.com/6256995755a7ea0a3d8fbd11/626bb702e68270a463952048_539292.jpg'
+    },
+    {
+        id:3,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRgUueEVQlLKUdx-zJl5x20y4POSIdEspA9Q&usqp=CAU'
+    },
+    {
+        id:4,
+        img:'https://image.spreadshirtmedia.com/image-server/v1/products/T401A2PA642PT17X0Y34D1024046757FS3786/views/2,width=650,height=650,appearanceId=239,backgroundColor=ffffff.jpg'
+    },
+    {
+        id:5,
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8cYDG7Cq2qjKbeJ2aqiuWRHYKPndddlIHrQ&usqp=CAU'
+    },
+    {
+        id:6,
+        img:'https://image.spreadshirtmedia.com/image-server/v1/products/T512A1PA4049PT17X25Y108D1021526116FS8202/views/4,width=650,height=650,appearanceId=1,backgroundColor=fff.jpg'
+    },
+    {
+        id:7,
+        img:'https://image.spreadshirtmedia.com/image-server/v1/products/T401A2PA642PT17X17Y35D1041773107FS4984CxFFFFFF/views/1,width=650,height=650,appearanceId=2,backgroundColor=fff.jpg'
+    },
+    {
+        id:8,
+        img:'https://image.spreadshirtmedia.com/image-server/v1/products/T1351A1PA3246PT17X176Y46D1038373620FS7666/views/1,width=500,height=500,appearanceId=1,backgroundColor=ffffff/club-logo-black-womens-premium-organic-t-shirt.jpg'
+    },
 ]
