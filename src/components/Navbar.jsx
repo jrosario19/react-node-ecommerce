@@ -71,7 +71,7 @@ const MenuItem = styled.div({
           <Search style={{color:'gray', fontSize:'16px'}}/>
         </SearchContainer>
       </Left>
-      <Center><Logo>JRS.</Logo></Center>
+      <Center><Logo>JFRS.</Logo></Center>
       <Right>
         <MenuItem>REGISTER</MenuItem>
         <MenuItem>SIGN IN</MenuItem>
