@@ -99,7 +99,7 @@ const Button = styled.button({
 
         <Slide bg={item.bg}>
             <ImgContainer>
-                <Image src={item.img} />
+                <Image src={item.img} key={item.id}/>
             </ImgContainer>
             <InfoContainer>
                 <Title>{item.title}</Title>

@@ -43,7 +43,7 @@ export const categories = [
 export const popularProducts=[
     {
         id:1,
-        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScDpdniZJNWLr18sIqgVc_xR9NLDQTp8mYzA&usqp=CAU'
+        img:'https://image.spreadshirtmedia.com/image-server/v1/products/T401A2PA642PT17X0Y34D1024046757FS3786/views/2,width=650,height=650,appearanceId=239,backgroundColor=ffffff.jpg'
     },
     {
         id:2,
@@ -59,7 +59,7 @@ export const popularProducts=[
     },
     {
         id:5,
-        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8cYDG7Cq2qjKbeJ2aqiuWRHYKPndddlIHrQ&usqp=CAU'
+        img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRgUueEVQlLKUdx-zJl5x20y4POSIdEspA9Q&usqp=CAU'
     },
     {
         id:6,
