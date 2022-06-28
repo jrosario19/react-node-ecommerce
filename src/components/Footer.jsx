@@ -3,6 +3,10 @@ import styled from "styled-components"
 
 const Container = styled.div({
      display: 'flex',
+     '@media(max-width: 380px)': {
+       flexDirection: 'column',
+       
+      }
      
 })
 
@@ -41,7 +45,10 @@ const SocialIcon = styled.div((props)=>({
 
 const Center = styled.div({
     flex:'1',
-    padding:'20px'
+    padding:'20px',
+    '@media(max-width: 380px)': {
+        display:'none'
+      }
 })
 
 const Title = styled.h3({
@@ -64,7 +71,10 @@ const ListItem = styled.li({
 
 const Right = styled.div({
     flex:'1',
-    padding:'20px'
+    padding:'20px',
+    '@media(max-width: 380px)': {
+       backgroundColor:'#fff8f8'
+      }
 })
 
 const ContactItem = styled.div({

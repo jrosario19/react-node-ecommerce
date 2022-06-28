@@ -4,7 +4,12 @@ import CategoryItem from './CategoryItem'
 
 const Container = styled.div({
     display:'flex',
-    padding:'20px'
+    padding:'20px',
+    '@media(max-width: 380px)': {
+      padding:'0px',
+      flexDirection: 'column',
+      
+    }
 }) 
 
 function Categories() {

@@ -8,7 +8,10 @@ import { sliderItems } from '../data'
     height:'100vh',
     display:'flex',
     position:'relative',
-    overflow:'hidden'
+    overflow:'hidden',
+    '@media(max-width: 380px)': {
+        display:'none'
+      }
  })
 
  const Arrow = styled.div((props)=>({

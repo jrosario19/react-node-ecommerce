@@ -21,6 +21,9 @@ const Desc= styled.div({
     fontSize:'24px',
     fontWeight:'300',
     marginBottom: '20px',
+    '@media(max-width: 380px)': {
+        textAlign:'center'
+      }
 })
 
 const InputContainer= styled.div({
@@ -29,7 +32,10 @@ const InputContainer= styled.div({
     backgroundColor:'white',
     display: 'flex',
     justifyContent: 'space-between',
-    border:'1px solid lightgray  '
+    border:'1px solid lightgray',
+    '@media(max-width: 380px)': {
+        width:'80%'
+      }
 })
 
 const Input= styled.input({

@@ -10,6 +10,9 @@ const Container = styled.div({
 const Image = styled.img({
     width:'100%',
     height:'100%',
+    '@media(max-width: 380px)': {
+        height:'30vh'
+      }
 })
 
 const Info = styled.div({
