@@ -14,7 +14,10 @@ const Container = styled.div({
 const Wrapper = styled.div({
     padding:'20px',
     width:'25%',
-    backgroundColor:'white '
+    backgroundColor:'white',
+    '@media(max-width: 380px)': {
+      width:'75%'
+    }
 })
 
 const Title = styled.h1({

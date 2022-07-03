@@ -10,7 +10,10 @@ const Container = styled.div({
 })
 
 const Wrapper = styled.div({
-     padding:'20px'
+     padding:'20px',
+     '@media(max-width: 380px)': {
+        padding:'10px'
+      }
 })
 
 const Title = styled.h1({
@@ -38,7 +41,9 @@ const TopButton = styled.button((props)=>({
 }))
 
 const TopTexts= styled.div({
-
+    '@media(max-width: 380px)': {
+       display:'none'
+      }
 })
 
 const TopText= styled.span({
@@ -50,7 +55,10 @@ const TopText= styled.span({
 const Bottom = styled.div({
      display: 'flex',
      justifyContent: 'space-between',
-     
+     '@media(max-width: 380px)': {
+        flexDirection: 'column',
+        
+      }
 })
 
 const Info = styled.div({
@@ -60,6 +68,10 @@ const Info = styled.div({
 const Product = styled.div({
  display: 'flex',
  justifyContent: 'space-between',
+ '@media(max-width: 380px)': {
+    flexDirection: 'column',
+    
+  }  
  
 })
 
@@ -119,12 +131,20 @@ const ProductAmountContainer = styled.div({
 
 const ProductAmount = styled.div({
      fontSize:'24px',
-     margin:'5px'
+     margin:'5px',
+     '@media(max-width: 380px)': {
+        margin: '5px 15px',
+        
+      }
 })
 
 const ProductPrice = styled.div({
     fontSize:'30px',
     fontWeight: '200',
+    '@media(max-width: 380px)': {
+        marginBottom: '20px',
+        
+      }
     
 })
 

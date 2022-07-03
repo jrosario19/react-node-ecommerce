@@ -12,7 +12,10 @@ const Container = styled.div({
 const Wrapper = styled.div({
     padding:'50px',
     display: 'flex',
-    
+    '@media(max-width: 380px)': {
+        flexDirection: 'column',
+        padding:'10px'
+      }
 })
 
 const ImgContainer = styled.div({
@@ -21,12 +24,18 @@ const ImgContainer = styled.div({
 
 const Image = styled.img({
     width:'100%',
-    height:'90vh'
+    height:'90vh',
+    '@media(max-width: 380px)': {
+        height:'40vh'
+      }
 })
 
 const InfoContainer = styled.div({
     flex:'1',
-    padding:'0px 50px'
+    padding:'0px 50px',
+    '@media(max-width: 380px)': {
+        padding:'10px '
+      }
 })
 
 const Title = styled.h1({
@@ -47,7 +56,10 @@ const FilterContainer = styled.div({
  display: 'flex',
  justifyContent: 'space-between',
  width:'50%',
- margin:'30px 0px '
+ margin:'30px 0px',
+ '@media(max-width: 380px)': {
+    width:'99%'
+  }
 })
 
 const Filter = styled.div({
@@ -85,6 +97,9 @@ const AddContainer = styled.div ({
     alignItems: 'center',
     width:'50%',
     justifyContent: 'space-between',
+    '@media(max-width: 380px)': {
+        width:'100%'
+      }
     
 })
 

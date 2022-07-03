@@ -20,19 +20,30 @@ const FilterContainer = styled.div({
 })
 
 const Filter = styled.div({
-    margin:'20px'
+    margin:'20px',
+    '@media(max-width: 380px)': {
+        display:'flex',
+        flexDirection: 'column',
+        margin:'0px 20px'
+      }
 })
 
 const FilterText = styled.span({
     fontSize:'20px',
     fontWeight: '600',
     marginRight: '20px',
+    '@media(max-width: 380px)': {
+        marginRight:'0px '
+      }
     
 })
 
 const Select = styled.select({
     padding:'10px',
     marginRight: '20px',
+    '@media(max-width: 380px)': {
+        margin:'10px 0px '
+      }
     
 })
 
