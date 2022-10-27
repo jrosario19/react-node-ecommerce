@@ -8,6 +8,8 @@ import {useLocation} from 'react-router-dom'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { publicRequest } from '../requestMethod'
+import { useDispatch } from 'react-redux'
+import { addProduct } from '../redux/cartRedux'
 
 const Container = styled.div({
 
@@ -145,6 +147,7 @@ const Product = () => {
     const [quantity, setQuantity]= useState(1);
     const [color, setColor]= useState("");
     const [size, setSize]= useState("");
+    const dispatch = useDispatch()
 
     useEffect(()=>{
         const getProduct = async ()=>{
@@ -167,7 +170,7 @@ const Product = () => {
     }
 
     const handleClick = () =>{
-        
+        dispatch(addProduct({...product, quantity, color, size}));
     }
   return (
     <Container>
@@ -191,6 +194,7 @@ const Product = () => {
                 <Filter>
                     <FilterTitle>Size</FilterTitle>
                     <FilterSize onChange={(e)=>setSize(e.target.value)}>
+                        <FilterSizeOption >Select</FilterSizeOption>
                         {product.size?.map((s)=>(
                         <FilterSizeOption key={s}>{s}</FilterSizeOption>
                     ))}
