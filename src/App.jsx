@@ -26,7 +26,7 @@ const App = () => {
       <Route path="/Login" element={user ? <Navigate  to="/"/> :<Login/>}/>
           
       
-      <Route path="/Register" element={user ? <Navigate  to="/"/> :<Register/>}/>
+      <Route path="/Register" element={!user ? <Navigate  to="/"/> :<Register/>}/>
     </Routes>
   </Router>);
 };

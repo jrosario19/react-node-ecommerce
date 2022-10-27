@@ -217,7 +217,7 @@ const Cart = () => {
                     tokenId: stripeToken.id,
                     amount: 500,
                 })
-                const data = [{stripeData:res.data}, {products:cart}]
+                const data = {stripeData:res.data,products:cart}
                 history("/success",{state:data})
             } catch (error) {
                 
