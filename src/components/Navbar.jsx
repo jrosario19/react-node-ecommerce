@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Search, ShoppingCartOutlined } from '@material-ui/icons'
 import { Badge } from '@material-ui/core';
-import { useSelector } from 'react-redux';
-import { Link } from "react-router-dom"
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
+import { loginFailure, loginStart, logoutSuccess } from "../redux/userRedux"
 
 
 
@@ -90,6 +91,17 @@ const MenuItem = styled.div({
 
  const Navbar = () => {
   const quantity = useSelector(state=>state.cart.quantity)
+  const currentUser1 = useSelector(state=>state.user.currentUser)
+  const dispatch = useDispatch();
+  const handleClick = () =>{
+    dispatch(loginStart());
+    try {
+        dispatch(logoutSuccess())
+    } catch (error) {
+        dispatch(loginFailure())
+    }
+  }
+
    return (
      <Container>
       <Wrapper>
@@ -102,8 +114,13 @@ const MenuItem = styled.div({
       </Left>
       <Center><Logo>JFRS.</Logo></Center>
       <Right>
+      <Link to='/register' style={{textDecoration:'none'}}>
         <MenuItem>REGISTER</MenuItem>
-        <MenuItem>SIGN IN</MenuItem>
+      </Link>  
+        {!currentUser1 && <Link style={{textDecoration:'none'}} to='/login'><MenuItem>SIGN IN</MenuItem></Link>}
+        
+        {currentUser1 && <MenuItem onClick={handleClick}>SIGN OUT</MenuItem>}
+        
         <Link to='/cart'>
           <MenuItem>
             <Badge badgeContent={quantity} color="primary">

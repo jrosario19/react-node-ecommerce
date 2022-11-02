@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { userRequest } from "../requestMethod";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { deleteCart } from "../redux/cartRedux"
 
 const Success = () => {
   const location = useLocation();
@@ -11,6 +12,9 @@ const Success = () => {
   const cart = location.state.products;
   const currentUser = useSelector((state) => state.user.currentUser);
   const [orderId, setOrderId] = useState(null);
+  const cart1 =useSelector((state) => state.cart);
+  const [cart2, setCart] = useState(cart1);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const createOrder = async () => {
@@ -26,11 +30,13 @@ const Success = () => {
         });
         console.log(res.data)
         setOrderId(res.data._id);
+        dispatch(deleteCart())
       } catch {}
     };
     
     console.log(data)
     console.log(currentUser)
+    console.log(currentUser.accessToken)
     data && createOrder();
   }, [cart, data, currentUser]);
 

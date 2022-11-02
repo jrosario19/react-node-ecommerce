@@ -1,7 +1,11 @@
 import axios from 'axios'
+import {store} from './redux/store';
 
-const BASE_URL = "http://localhost:5000/api";
-const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYmM5MTQyOThjNmI5MmU0ZGM1ZjRjOSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2NjkwMDk2OCwiZXhwIjoxNjY3MTYwMTY4fQ.5SAoEXfQDnMjM87Oh7zaV-OSHBgWiYpD9ZTugobojuc";
+const state = store.getState();
+
+const token = state.user.currentUser ? state.user.currentUser.accessToken : null
+const BASE_URL = "https://ecommerce-jfrs.herokuapp.com/api/";
+const TOKEN = token;
 
 
 export const publicRequest = axios.create({

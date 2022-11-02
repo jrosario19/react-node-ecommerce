@@ -18,10 +18,10 @@ const App = () => {
   return (<Router>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/products/:category" element={<ProductList/>}/>
-      <Route path="/product/:id" element={<Product/>}/>
-      <Route path="/cart" element={<Cart/>}/>
-      <Route path="/success" element={<Success/>}/>
+      <Route path="/products/:category" element={user ?<ProductList/>:<Login/>}/>
+      <Route path="/product/:id" element={user ?<Product/>:<Login/>}/>
+      <Route path="/cart" element={user ?<Cart/>:<Login/>}/>
+      <Route path="/success" element={user ?<Success/>:<Login/>}/>
       
       <Route path="/Login" element={user ? <Navigate  to="/"/> :<Login/>}/>
           

@@ -204,8 +204,10 @@ const Button = styled.button({
 
 const Cart = () => {
     
-    const cart = useSelector(state=>state.cart)
+    const cart1 = useSelector(state=>state.cart)
+    const currentUser = useSelector(state=>state.user)
     const [stripeToken, setStripeToken] = useState(null)
+    const [cart, setCart] = useState(cart1)
     const history = useNavigate()
     const onToken = (token) => {
         setStripeToken(token);
@@ -213,18 +215,20 @@ const Cart = () => {
     useEffect(()=>{
         const makeRequest = async ()=>{
             try {
+                console.log(currentUser);                
                 const res = await userRequest.post("/checkout/payment", {
                     tokenId: stripeToken.id,
                     amount: 500,
                 })
-                const data = {stripeData:res.data,products:cart}
+                const data = {stripeData:res.data,products:cart1};
+                setCart(null)
                 history("/success",{state:data})
             } catch (error) {
                 
             }
         };
        stripeToken && makeRequest();
-    },[stripeToken, cart.total, history])
+    },[stripeToken, cart1.total, history])
 
    
 
@@ -244,7 +248,7 @@ const Cart = () => {
         </Top>
         <Bottom>
             <Info>
-                 {cart.products.map((product)=>(
+                 {cart1.products.map((product)=>(
 
                      <Product>
                     <ProductDetail>
@@ -275,7 +279,7 @@ const Cart = () => {
                 <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                 <SummaryItem>
                     <SummaryItemText>Subtotal</SummaryItemText>
-                    <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+                    <SummaryItemPrice>$ {cart1.total}</SummaryItemPrice>
                 </SummaryItem>
                 <SummaryItem>
                     <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -287,15 +291,15 @@ const Cart = () => {
                 </SummaryItem>
                 <SummaryItem type='total'>
                     <SummaryItemText >Total</SummaryItemText>
-                    <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+                    <SummaryItemPrice>$ {cart1.total}</SummaryItemPrice>
                 </SummaryItem>
                 <StripeCheckout
                 name="JFRS Shop"
                 image='https://avatars.githubusercontent.com/u/1486366?v=4'
                 billingAddress
                 shippingAddress
-                description={`Your total is $${cart.total}`}
-                amount={cart.total*100}
+                description={`Your total is $${cart1.total}`}
+                amount={cart1.total*100}
                 token={onToken}
                 stripeKey={KEY}>
                     <Button>CHECKOUT NOW</Button>
