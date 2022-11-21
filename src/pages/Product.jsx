@@ -7,7 +7,7 @@ import Newsletter from '../components/Newsletter'
 import {useLocation} from 'react-router-dom'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import { publicRequest } from '../requestMethod'
+import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { addProduct } from '../redux/cartRedux'
 
@@ -152,7 +152,8 @@ const Product = () => {
     useEffect(()=>{
         const getProduct = async ()=>{
             try {
-                const res = await publicRequest.get("products/find/"+id);
+                //const res = await axios.get("https://ecommerce-jfrs.herokuapp.com/api/products/find/"+id);
+                const res = await axios.get("http://localhost:5000/api/products/find/"+id);
                 setProduct(res.data);
             } catch (error) {
                 

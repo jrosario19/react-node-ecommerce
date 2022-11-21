@@ -20,6 +20,7 @@ const Success = () => {
     const createOrder = async () => {
       try {
         const res = await userRequest.post("/orders", {
+          
           userId: currentUser._id,
           products: cart.products.map((item) => ({
             productId: item._id,
@@ -27,7 +28,7 @@ const Success = () => {
           })),
           amount: cart.total,
           address: data.billing_details.address,
-        });
+        },{ headers: {token:`Bearer ${currentUser.accessToken}`}});
         console.log(res.data)
         setOrderId(res.data._id);
         dispatch(deleteCart())

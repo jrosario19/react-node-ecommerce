@@ -219,7 +219,7 @@ const Cart = () => {
                 const res = await userRequest.post("/checkout/payment", {
                     tokenId: stripeToken.id,
                     amount: 500,
-                })
+                },{ headers: {token:`Bearer ${currentUser.accessToken}`}})
                 const data = {stripeData:res.data,products:cart1};
                 setCart(null)
                 history("/success",{state:data})
