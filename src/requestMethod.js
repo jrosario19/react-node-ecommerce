@@ -1,17 +1,6 @@
 import axios from 'axios'
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import {store} from './redux/store';
 
- let authToken = "";
-const getCurrentUser = () =>{
-    
-        const state = store.getState();
-        authToken = state.user.currentUser==null ? null : state.user.currentUser.accessToken;
-        return authToken;
-}
 
-getCurrentUser();
 
 
 //const token = state.user.currentUser ? state.user.currentUser.accessToken : null
